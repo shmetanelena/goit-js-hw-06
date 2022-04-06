@@ -14,7 +14,6 @@ function createBoxes(amount) {
         div.style.height = size;
         div.style.backgroundColor = getRandomHexColor();
         divs.push(div);
-
         boxes.push(div);
     }
     divBoxes.append(...divs);
@@ -31,9 +30,4 @@ controls.querySelector('button[data-destroy]').addEventListener('click', () => {
     boxes.forEach(box => box.remove());
     boxes = [];
     inputAmount.value = 1;
-    /*let elem = divBoxes.firstChild;
-    while (elem) {
-        elem.remove();
-        elem = divBoxes.firstChild;
-    }*/
 });
