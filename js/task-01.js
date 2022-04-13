@@ -4,7 +4,6 @@ console.log(`Number of categories: ${items.length}`);
 
 items.forEach(item =>
     console.log(
-        `Category: ${item.querySelector('h2').textContent}\n
-        Elements:${item.querySelectorAll('li').length}\n`
+        `Category: ${item.firstElementChild.textContent}\nElements: ${item.lastElementChild.children.length}`
     )
 );

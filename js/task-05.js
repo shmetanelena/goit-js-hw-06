@@ -8,5 +8,3 @@ function setSpanText(text) {
 elemInput.addEventListener('input', event =>
     setSpanText(event.currentTarget.value)
 );
-
-setSpanText();

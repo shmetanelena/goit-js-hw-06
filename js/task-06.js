@@ -7,4 +7,4 @@ function setInputClass() {
     input.classList.add(isValid ? 'valid' : 'invalid');
 }
 input.addEventListener('blur', setInputClass);
-setInputClass();
+//setInputClass();

@@ -2,10 +2,10 @@ function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const divBoxes = document.querySelector('div#boxes');
-let boxes = [];
+const divBoxesEl = document.querySelector('div#boxes');
 
 function createBoxes(amount) {
+    destroyBoxes();
     let divs = [];
     for (let i = 0; i < amount; i++) {
         const div = document.createElement('div');
@@ -14,9 +14,12 @@ function createBoxes(amount) {
         div.style.height = size;
         div.style.backgroundColor = getRandomHexColor();
         divs.push(div);
-        boxes.push(div);
     }
-    divBoxes.append(...divs);
+    divBoxesEl.append(...divs);
+}
+
+function destroyBoxes() {
+    divBoxesEl.querySelectorAll('div').forEach(elem => elem.remove());
 }
 
 const controls = document.querySelector('#controls');
@@ -27,7 +30,6 @@ controls
     .addEventListener('click', () => createBoxes(inputAmount.value));
 
 controls.querySelector('button[data-destroy]').addEventListener('click', () => {
-    boxes.forEach(box => box.remove());
-    boxes = [];
+    destroyBoxes();
     inputAmount.value = 1;
 });
